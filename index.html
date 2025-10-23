@@ -2,94 +2,185 @@
 <html lang="uk">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Кав’ярня Дюск Бригантина — Київ</title>
-  <meta name="description" content="Кав’ярня Дюск Бригантина — це затишок і смак справжньої кави у самому серці Києва. Насолодись атмосферою моря і теплом філіжанки.">
-  <link rel="stylesheet" href="styles.css" />
+  <meta name="description" content="Кав’ярня Дюск Бригантина у Києві: кава з морським характером, десерти, акції місяця. Затишок і смак у центрі міста." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <meta property="og:title" content="Дюск Бригантина — Київ">
+  <meta property="og:description" content="Кава, десерти та затишок у серці Києва.">
+  <meta property="og:type" content="website">
   <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/924/924514.png">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-  <header class="hero" id="home">
-    <nav class="navbar">
-      <div class="logo">Дюск Бригантина</div>
-      <ul class="nav-links">
-        <li><a href="#about">Про нас</a></li>
-        <li><a href="#menu">Меню</a></li>
-        <li><a href="#gallery">Галерея</a></li>
-        <li><a href="#reviews">Відгуки</a></li>
-        <li><a href="#contact">Контакти</a></li>
-      </ul>
-      <div class="burger">&#9776;</div>
-    </nav>
-    <div class="hero-content">
-      <h1>Кава з морським характером у серці Києва</h1>
-      <p>Атмосфера затишку, аромату і тепла у кожній чашці</p>
-      <a href="#menu" class="btn">Переглянути меню</a>
+  <!-- Навігація -->
+  <header class="navbar">
+    <div class="container nav-inner">
+      <a href="#home" class="logo">Дюск Бригантина</a>
+      <nav>
+        <ul class="nav-links">
+          <li><a href="#about">Про нас</a></li>
+          <li><a href="#deals">Акції</a></li>
+          <li><a href="#menu">Меню</a></li>
+          <li><a href="#gallery">Галерея</a></li>
+          <li><a href="#reviews">Відгуки</a></li>
+          <li><a href="#contact">Контакти</a></li>
+        </ul>
+        <button class="burger" aria-label="Відкрити меню"><span></span><span></span><span></span></button>
+      </nav>
     </div>
   </header>
 
-  <section class="about" id="about">
-    <h2>Про нас</h2>
-    <p>«Дюск Бригантина» — це кав’ярня з душею моря, де кожен день пахне кавою, 
-    свіжою випічкою та гарним настроєм. Ми працюємо для вас у самому центрі Києва, 
-    щоб кожен гість міг знайти спокій, тепло і натхнення у філіжанці ароматної кави.</p>
-    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4" alt="Інтер'єр кав’ярні">
-  </section>
-
-  <section class="menu" id="menu">
-    <h2>Меню</h2>
-    <div class="menu-grid">
-      <div class="card"><img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Лате"><h3>Лате</h3><p>70 ₴</p></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1529042410759-befb1204b468" alt="Капучино"><h3>Капучино</h3><p>75 ₴</p></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1498804103079-a6351b050096" alt="Американо"><h3>Американо</h3><p>60 ₴</p></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587" alt="Чізкейк"><h3>Чізкейк Нью-Йорк</h3><p>110 ₴</p></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1559563458-527698bf5295" alt="Круасан"><h3>Круасан з мигдалем</h3><p>85 ₴</p></div>
-      <div class="card"><img src="https://images.unsplash.com/photo-1600271886742-f049cd451bba" alt="Матча латте"><h3>Матча латте</h3><p>95 ₴</p></div>
+  <!-- Hero -->
+  <section id="home" class="hero">
+    <div class="overlay"></div>
+    <div class="container hero-content">
+      <h1>Кава з морським характером у серці Києва</h1>
+      <p>Затишок, тепло і натхнення в кожній філіжанці.</p>
+      <a class="btn" href="#menu">Переглянути меню</a>
     </div>
   </section>
 
-  <section class="gallery" id="gallery">
-    <h2>Галерея</h2>
-    <div class="gallery-grid">
-      <img src="https://images.unsplash.com/photo-1498804103079-a6351b050096" alt="Кава">
-      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Інтер’єр">
-      <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03" alt="Десерт">
-      <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814" alt="Бариста">
+  <!-- Про нас -->
+  <section id="about" class="section">
+    <div class="container grid-2">
+      <div>
+        <h2>Про нас</h2>
+        <p>«Дюск Бригантина» — це кав’ярня з душею моря. Ми варимо каву зі свіжообсмажених зерен, готуємо десерти власного виробництва та створюємо атмосферу спокою серед міського ритму.</p>
+        <ul class="bullets">
+          <li>Адреса: м. Київ, вул. Хрещатик, 25</li>
+          <li>Години роботи: щоденно 8:00–21:00</li>
+          <li>Телефон: <a href="tel:+380931234567">+38 (093) 123-45-67</a></li>
+        </ul>
+      </div>
+      <div class="image-wrap">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=80&auto=format&fit=crop" alt="Інтер’єр кав’ярні">
+      </div>
     </div>
   </section>
 
-  <section class="reviews" id="reviews">
-    <h2>Відгуки наших гостей</h2>
-    <div class="review-grid">
-      <div class="review"><p>«Дуже атмосферно! Найсмачніша кава у центрі Києва.»</p><span>— Марія</span></div>
-      <div class="review"><p>«Обожнюю їхні круасани та музику. Місце, куди хочеться повертатися.»</p><span>— Андрій</span></div>
-      <div class="review"><p>«Привітний персонал, смачна кава і затишок — 10 з 10!»</p><span>— Олена</span></div>
+  <!-- Акції місяця -->
+  <section id="deals" class="section section-tint">
+    <div class="container">
+      <h2>Акції місяця</h2>
+      <div class="cards">
+        <article class="card">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=900&q=80&auto=format&fit=crop" alt="Лате">
+          <div class="card-body">
+            <h3>Лате + круасан</h3>
+            <p class="price"><span class="old">155 ₴</span> 129 ₴</p>
+            <p>Класичний лате та теплий круасан з мигдалем.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1498804103079-a6351b050096?w=900&q=80&auto=format&fit=crop" alt="Капучино">
+          <div class="card-body">
+            <h3>Капучино 2=1</h3>
+            <p class="price">за 1 — другий у подарунок</p>
+            <p>Щоденно з 10:00 до 12:00.</p>
+          </div>
+        </article>
+        <article class="card">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=900&q=80&auto=format&fit=crop" alt="Чізкейк">
+          <div class="card-body">
+            <h3>Чізкейк Нью-Йорк</h3>
+            <p class="price"><span class="old">120 ₴</span> 99 ₴</p>
+            <p>З кавасетами — додаткова знижка 10%.</p>
+          </div>
+        </article>
+      </div>
     </div>
   </section>
 
-  <section class="contact" id="contact">
-    <h2>Контакти</h2>
-    <p>📍 м. Київ, вул. Хрещатик, 25</p>
-    <p>📞 Телефон: <a href="tel:+380931234567">+38 (093) 123-45-67</a></p>
-    <p>🕒 Працюємо: Пн–Нд з 8:00 до 21:00</p>
-
-    <form id="contact-form">
-      <input type="text" placeholder="Ваше ім’я" required>
-      <input type="email" placeholder="Ваш email" required>
-      <textarea placeholder="Ваше повідомлення" required></textarea>
-      <button type="submit" class="btn">Надіслати</button>
-    </form>
-    <div id="form-message"></div>
-
-    <iframe src="https://maps.google.com/maps?q=kyiv%20khreshchatyk&t=&z=13&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+  <!-- Меню -->
+  <section id="menu" class="section">
+    <div class="container">
+      <h2>Меню</h2>
+      <div class="cards">
+        <article class="card">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1529042410759-befb1204b468?w=900&q=80&auto=format&fit=crop" alt="Капучино">
+          <div class="card-body"><h3>Капучино</h3><p class="price">75 ₴</p></div>
+        </article>
+        <article class="card">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=900&q=80&auto=format&fit=crop" alt="Лате">
+          <div class="card-body"><h3>Лате</h3><p class="price">70 ₴</p></div>
+        </article>
+        <article class="card">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?w=900&q=80&auto=format&fit=crop" alt="Американо">
+          <div class="card-body"><h3>Американо</h3><p class="price">60 ₴</p></div>
+        </article>
+        <article class="card">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=900&q=80&auto=format&fit=crop" alt="Матча латте">
+          <div class="card-body"><h3>Матча латте</h3><p class="price">95 ₴</p></div>
+        </article>
+        <article class="card">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1559563458-527698bf5295?w=900&q=80&auto=format&fit=crop" alt="Круасан">
+          <div class="card-body"><h3>Круасан з мигдалем</h3><p class="price">85 ₴</p></div>
+        </article>
+        <article class="card">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=900&q=80&auto=format&fit=crop" alt="Чізкейк">
+          <div class="card-body"><h3>Чізкейк Нью-Йорк</h3><p class="price">110 ₴</p></div>
+        </article>
+      </div>
+    </div>
   </section>
 
-  <footer>
-    <p>© <span id="year"></span> Дюск Бригантина, Київ</p>
-    <p class="author">Created by Chernyshev Roman</p>
+  <!-- Галерея -->
+  <section id="gallery" class="section section-tint">
+    <div class="container">
+      <h2>Галерея</h2>
+      <div class="gallery">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1498804103079-a6351b050096?w=1200&q=75&auto=format&fit=crop" alt="Кава">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?w=1200&q=75&auto=format&fit=crop" alt="Інтер’єр">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?w=1200&q=75&auto=format&fit=crop" alt="Десерт">
+        <img loading="lazy" src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=1200&q=75&auto=format&fit=crop" alt="Бариста">
+      </div>
+    </div>
+  </section>
+
+  <!-- Відгуки -->
+  <section id="reviews" class="section">
+    <div class="container">
+      <h2>Відгуки гостей</h2>
+      <div class="reviews">
+        <blockquote>«Найсмачніша кава біля Хрещатика. Атмосфера — 10/10!» — Марія</blockquote>
+        <blockquote>«Люблю ранкові капучино та круасани. Дуже затишно.» — Андрій</blockquote>
+        <blockquote>«Привітна команда, швидко й смачно. Рекомендую!» — Олена</blockquote>
+      </div>
+    </div>
+  </section>
+
+  <!-- Контакти -->
+  <section id="contact" class="section section-tint">
+    <div class="container grid-2">
+      <div>
+        <h2>Контакти</h2>
+        <p>📍 м. Київ, вул. Хрещатик, 25</p>
+        <p>📞 <a href="tel:+380931234567">+38 (093) 123-45-67</a></p>
+        <p>🕒 Пн–Нд: 8:00–21:00</p>
+        <form id="contact-form" class="form">
+          <input type="text" placeholder="Ваше ім’я" required>
+          <input type="email" placeholder="Ваш email" required>
+          <textarea rows="4" placeholder="Повідомлення" required></textarea>
+          <button class="btn" type="submit">Надіслати</button>
+          <div id="form-message" class="form-message" aria-live="polite"></div>
+        </form>
+      </div>
+      <div class="map-wrap">
+        <iframe title="Карта Київ, Хрещатик" src="https://maps.google.com/maps?q=Kyiv%20Khreshchatyk%2025&t=&z=14&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+      </div>
+    </div>
+  </section>
+
+  <footer class="footer">
+    <div class="container footer-inner">
+      <span>© <span id="year"></span> Дюск Бригантина, Київ</span>
+      <span class="author">Created by Chernyshev Roman</span>
+    </div>
   </footer>
 
   <script src="script.js"></script>
 </body>
 </html>
-
