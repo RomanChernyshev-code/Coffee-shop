@@ -1,18 +1,22 @@
 // Бургер-меню
 const burger = document.querySelector('.burger');
-const navLinks = document.querySelector('.nav-links');
-burger.addEventListener('click', () => navLinks.classList.toggle('active'));
+const navList = document.querySelector('.nav-links');
+burger?.addEventListener('click', () => navList.classList.toggle('show'));
+navList?.addEventListener('click', (e) => {
+  if (e.target.matches('a')) navList.classList.remove('show');
+});
 
 // Повідомлення після відправки форми
 const form = document.getElementById('contact-form');
-const message = document.getElementById('form-message');
-form.addEventListener('submit', (e) => {
+const msg = document.getElementById('form-message');
+form?.addEventListener('submit', (e) => {
   e.preventDefault();
-  message.textContent = "Дякуємо! Ми зв’яжемось з вами ☕";
-  message.style.color = "#2b4c6f";
+  if (msg){
+    msg.textContent = 'Дякуємо! Ми зв’яжемося з вами ☕';
+    setTimeout(()=> msg.textContent = '', 4000);
+  }
   form.reset();
 });
 
-// Динамічний рік
+// Поточний рік у футері
 document.getElementById('year').textContent = new Date().getFullYear();
-
