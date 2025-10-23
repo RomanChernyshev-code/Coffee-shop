@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Дюск Бригантина — Кофейня у моря</title>
+  <meta name="description" content="Кофейня Дюск Бригантина — место, где море встречает аромат кофе. Насладись уютом, вкусом и атмосферой.">
+  <link rel="stylesheet" href="styles.css" />
+  <link rel="icon" type="image/png" href="https://cdn-icons-png.flaticon.com/512/924/924514.png">
+</head>
+<body>
+  <header class="hero" id="home">
+    <nav class="navbar">
+      <div class="logo">Дюск Бригантина</div>
+      <ul class="nav-links">
+        <li><a href="#about">О нас</a></li>
+        <li><a href="#menu">Меню</a></li>
+        <li><a href="#reviews">Отзывы</a></li>
+        <li><a href="#contact">Контакты</a></li>
+      </ul>
+      <div class="burger">&#9776;</div>
+    </nav>
+    <div class="hero-content">
+      <h1>Кофе с морским характером</h1>
+      <p>Уютное место, где море встречает аромат кофе</p>
+      <a href="#menu" class="btn">Посмотреть меню</a>
+    </div>
+  </header>
+
+  <section class="about" id="about">
+    <h2>О нас</h2>
+    <p>Кофейня «Дюск Бригантина» — это уголок уюта на побережье, где каждый глоток согревает, а аромат кофе напоминает о море и свободе. Мы варим кофе с душой и подаём его с улыбкой.</p>
+    <img src="https://images.unsplash.com/photo-1517248135467-4c7edcad34c4" alt="Coffee shop interior">
+  </section>
+
+  <section class="menu" id="menu">
+    <h2>Меню</h2>
+    <div class="menu-grid">
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Latte">
+        <h3>Латте</h3>
+        <p>65 ₴</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" alt="Cappuccino">
+        <h3>Капучино</h3>
+        <p>70 ₴</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03" alt="Americano">
+        <h3>Американо</h3>
+        <p>55 ₴</p>
+      </div>
+      <div class="card">
+        <img src="https://images.unsplash.com/photo-1559563458-527698bf5295" alt="Cheesecake">
+        <h3>Чизкейк</h3>
+        <p>90 ₴</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="reviews" id="reviews">
+    <h2>Отзывы</h2>
+    <div class="review-grid">
+      <div class="review">
+        <p>«Идеальное место у моря! Кофе потрясающий, а атмосфера — просто волшебство.»</p>
+        <span>— Марина</span>
+      </div>
+      <div class="review">
+        <p>«Часто прихожу сюда после прогулки — уют, вкус, и море рядом. Любимое место!»</p>
+        <span>— Алексей</span>
+      </div>
+      <div class="review">
+        <p>«Очень дружелюбный персонал и лучший латте в городе!»</p>
+        <span>— Анна</span>
+      </div>
+    </div>
+  </section>
+
+  <section class="contact" id="contact">
+    <h2>Контакты</h2>
+    <p>г. Одесса, Приморская 5</p>
+    <p>Телефон: <a href="tel:+380931234567">+38 (093) 123-45-67</a></p>
+    <p>Работаем: с 8:00 до 21:00</p>
+
+    <form id="contact-form">
+      <input type="text" placeholder="Ваше имя" required>
+      <input type="email" placeholder="Ваш e-mail" required>
+      <textarea placeholder="Сообщение" required></textarea>
+      <button type="submit" class="btn">Отправить</button>
+    </form>
+    <div id="form-message"></div>
+
+    <iframe src="https://maps.google.com/maps?q=odessa&t=&z=13&ie=UTF8&iwloc=&output=embed" loading="lazy"></iframe>
+  </section>
+
+  <footer>
+    <p>© <span id="year"></span> Дюск Бригантина. Все права защищены.</p>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
