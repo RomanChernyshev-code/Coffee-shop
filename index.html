@@ -1,258 +1,124 @@
 <!DOCTYPE html>
 <html lang="uk">
 <head>
-  <meta charset="utf-8" />
+  <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Кав’ярня «Дюск Бригантина» — Київ</title>
-  <meta name="description" content="Кав’ярня «Дюск Бригантина» у Києві: кава з морським характером, свіжі десерти, акції місяця. Затишок і смак у центрі міста." />
-  <meta name="theme-color" content="#8b5e3c">
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="icon" href="https://cdn-icons-png.flaticon.com/512/924/924514.png" />
+  <meta name="color-scheme" content="light" />
+  <meta name="theme-color" content="#4b2e05" />
+  <meta name="description" content="Кав’ярня «Брігантина» — вітрила смаку щодня. Свіжа кава, десерти та затишна атмосфера у серці Києва." />
+  <meta property="og:title" content="Брігантина Кава — Вітрила смаку щодня" />
+  <meta property="og:description" content="Свіжа кава, десерти та затишна атмосфера у серці Києва." />
+  <meta property="og:type" content="website" />
+  <title>Брігантина Кава — Вітрила смаку щодня</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css" />
-  <!-- Організація/заклад для SEO -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "CafeOrCoffeeShop",
-    "name": "Кав’ярня «Дюск Бригантина»",
-    "address": {
-      "@type": "PostalAddress",
-      "addressLocality": "Київ",
-      "streetAddress": "вул. Хрещатик, 25"
-    },
-    "telephone": "+380931234567",
-    "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=1200&q=70&auto=format&fit=crop",
-    "servesCuisine": "Coffee, Desserts",
-    "url": "https://romanchernyshev-code.github.io/Coffee-shop/"
-  }
-  </script>
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
 </head>
 <body>
-  <a class="skip-link" href="#menu">Перейти до меню</a>
-
-  <!-- Навігація -->
-  <header class="navbar" role="banner">
-    <div class="container nav-row">
-      <a class="logo" href="#home">Дюск Бригантина</a>
-      <nav aria-label="Головне меню">
-        <button class="burger" aria-label="Відкрити меню" aria-expanded="false" aria-controls="navList">
-          <span></span><span></span><span></span>
-        </button>
-        <ul id="navList" class="nav-list">
-          <li><a href="#deals">Акції</a></li>
-          <li><a href="#menu">Меню</a></li>
-          <li><a href="#about">Про нас</a></li>
-          <li><a href="#contact">Контакти</a></li>
-        </ul>
-      </nav>
+  <!-- Прелоадер -->
+  <div id="preloader">
+    <div class="cup">
+      <div class="steam s1"></div>
+      <div class="steam s2"></div>
+      <div class="steam s3"></div>
     </div>
+    <span class="preloader-text">Заварюємо для вас найкращу каву…</span>
+  </div>
+
+  <header class="header" id="top">
+    <nav class="navbar">
+      <a class="logo" href="#top">☕ Брігантина</a>
+      <button class="burger" aria-label="Меню" aria-expanded="false" aria-controls="nav">
+        <span></span><span></span><span></span>
+      </button>
+      <ul id="nav" class="nav-links">
+        <li><a href="#about">Про нас</a></li>
+        <li><a href="#menu">Меню</a></li>
+        <li><a href="#gallery">Галерея</a></li>
+        <li><a href="#reviews">Відгуки</a></li>
+        <li><a href="#contact">Контакти</a></li>
+      </ul>
+    </nav>
+
+    <section class="hero">
+      <div class="hero-inner">
+        <h1 class="hero-title">Брігантина Кава</h1>
+        <p class="hero-tagline">Вітрила смаку щодня</p>
+        <a href="#menu" class="btn primary">Переглянути меню</a>
+        <a href="#contact" class="btn ghost">Забронювати столик</a>
+      </div>
+      <div class="hero-overlay"></div>
+    </section>
   </header>
 
-  <!-- Hero -->
-  <section id="home" class="hero" aria-label="Головний розділ">
-    <div class="container hero-grid">
-      <div class="hero-text reveal">
-        <h1>Тепла кава з морським характером</h1>
-        <p class="muted">
-          Затишна кав’ярня у центрі Києва. Класика та авторські напої, свіжа випічка і дружня атмосфера.
-        </p>
-        <div class="hero-actions">
-          <a class="btn" href="#menu">Переглянути меню</a>
-          <a class="link" href="#deals">Акції місяця →</a>
+  <main>
+    <section id="about" class="section about">
+      <div class="container">
+        <h2 class="section-title">Про нас</h2>
+        <p class="lead">Ми — київська кав’ярня, де кожна зернина проходить шлях від ферми до вашої чашки. «Брігантина» — місце тепла, зустрічей і натхнення.</p>
+        <div class="features">
+          <article class="feature-card"><div class="icon">🌱</div><h3>Свіжа обсмажка</h3><p>Локальна обсмажка — якість і характер.</p></article>
+          <article class="feature-card"><div class="icon">🥐</div><h3>Власна випічка</h3><p>Круасани й тарталетки до вашої кави.</p></article>
+          <article class="feature-card"><div class="icon">🕒</div><h3>Щодня з 8:00</h3><p>Сніданки, кава, вечірня атмосфера.</p></article>
         </div>
       </div>
+    </section>
 
-      <figure class="hero-media reveal" aria-hidden="true">
-        <img
-          src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&q=70&auto=format&fit=crop"
-          srcset="
-            https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=70&auto=format&fit=crop 600w,
-            https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=900&q=70&auto=format&fit=crop 900w"
-          sizes="(max-width: 900px) 100vw, 420px"
-          alt="Кремовий латте у теплих тонах"
-          width="900" height="1200" loading="lazy">
-      </figure>
-    </div>
-  </section>
-
-  <!-- Акції місяця -->
-  <section id="deals" class="section tint" aria-labelledby="dealsTitle">
-    <div class="container">
-      <h2 id="dealsTitle">Акції місяця</h2>
-      <div class="cards">
-        <article class="card reveal">
-          <img loading="lazy" alt="Лате та круасан"
-            src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=700&q=70&auto=format&fit=crop"
-            width="700" height="468">
-          <div class="card-body">
-            <div class="card-head">
-              <h3>Лате + круасан</h3><span class="badge">-20%</span>
-            </div>
-            <p class="price"><span class="old">155 ₴</span> 124 ₴</p>
-            <p class="muted">Щодня до 12:00</p>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <img loading="lazy" alt="Капучино"
-            src="https://images.unsplash.com/photo-1498804103079-a6351b050096?w=700&q=70&auto=format&fit=crop"
-            width="700" height="467">
-          <div class="card-body">
-            <div class="card-head">
-              <h3>Капучино 2=1</h3><span class="badge">ранок</span>
-            </div>
-            <p class="price">Купи один — другий у подарунок</p>
-            <p class="muted">10:00–12:00, пн–пт</p>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <img loading="lazy" alt="Чізкейк Нью-Йорк"
-            src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=700&q=70&auto=format&fit=crop"
-            width="700" height="875">
-          <div class="card-body">
-            <div class="card-head">
-              <h3>Чізкейк Нью-Йорк</h3><span class="badge">хіт</span>
-            </div>
-            <p class="price"><span class="old">120 ₴</span> 98 ₴</p>
-            <p class="muted">з кавовим сетом — ще -10%</p>
-          </div>
-        </article>
+    <section id="menu" class="section menu">
+      <div class="container">
+        <h2 class="section-title">Наше меню</h2>
+        <div class="menu-grid">
+          <article class="menu-item"><img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=600&auto=format&fit=crop"><div class="menu-body"><h3>Еспресо</h3><p>Сила і насиченість.</p><span class="price">45 ₴</span></div></article>
+          <article class="menu-item"><img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=600&auto=format&fit=crop"><div class="menu-body"><h3>Капучино</h3><p>Ідеальний баланс смаку.</p><span class="price">60 ₴</span></div></article>
+          <article class="menu-item"><img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=600&auto=format&fit=crop"><div class="menu-body"><h3>Лате</h3><p>М’який вершковий аромат.</p><span class="price">65 ₴</span></div></article>
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Меню -->
-  <section id="menu" class="section" aria-labelledby="menuTitle">
-    <div class="container">
-      <h2 id="menuTitle">Меню</h2>
-      <div class="cards">
-        <!-- Напої -->
-        <article class="card reveal">
-          <img loading="lazy" alt="Капучино"
-            src="https://images.unsplash.com/photo-1529042410759-befb1204b468?w=700&q=70&auto=format&fit=crop"
-            width="700" height="467">
-          <div class="card-body compact">
-            <h3>Капучино</h3>
-            <p class="row"><span>250 мл</span><span class="price">75 ₴</span></p>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <img loading="lazy" alt="Лате"
-            src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=700&q=70&auto=format&fit=crop"
-            width="700" height="468">
-          <div class="card-body compact">
-            <h3>Лате</h3>
-            <p class="row"><span>300 мл</span><span class="price">70 ₴</span></p>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <img loading="lazy" alt="Американо"
-            src="https://images.unsplash.com/photo-1510626176961-4b57d4fbad03?w=700&q=70&auto=format&fit=crop"
-            width="700" height="467">
-          <div class="card-body compact">
-            <h3>Американо</h3>
-            <p class="row"><span>250 мл</span><span class="price">60 ₴</span></p>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <img loading="lazy" alt="Матча латте"
-            src="https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=700&q=70&auto=format&fit=crop"
-            width="700" height="875">
-          <div class="card-body compact">
-            <h3>Матча латте</h3>
-            <p class="row"><span>300 мл</span><span class="price">95 ₴</span></p>
-          </div>
-        </article>
-
-        <!-- Десерти -->
-        <article class="card reveal">
-          <img loading="lazy" alt="Круасан з мигдалем"
-            src="https://images.unsplash.com/photo-1559563458-527698bf5295?w=700&q=70&auto=format&fit=crop"
-            width="700" height="467">
-          <div class="card-body compact">
-            <h3>Круасан з мигдалем</h3>
-            <p class="row"><span>100 г</span><span class="price">85 ₴</span></p>
-          </div>
-        </article>
-
-        <article class="card reveal">
-          <img loading="lazy" alt="Чізкейк Нью-Йорк"
-            src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=700&q=70&auto=format&fit=crop"
-            width="700" height="875">
-          <div class="card-body compact">
-            <h3>Чізкейк Нью-Йорк</h3>
-            <p class="row"><span>120 г</span><span class="price">110 ₴</span></p>
-          </div>
-        </article>
+    <section id="gallery" class="section gallery">
+      <div class="container">
+        <h2 class="section-title">Галерея</h2>
+        <div class="gallery-grid">
+          <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=800&auto=format&fit=crop">
+          <img src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=800&auto=format&fit=crop">
+          <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?q=80&w=800&auto=format&fit=crop">
+          <img src="https://images.unsplash.com/photo-1503602642458-232111445657?q=80&w=800&auto=format&fit=crop">
+        </div>
       </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Про нас -->
-  <section id="about" class="section tint" aria-labelledby="aboutTitle">
-    <div class="container about-grid">
-      <div class="about-text reveal">
-        <h2 id="aboutTitle">Про нас</h2>
-        <p>«Дюск Бригантина» — місце, де бадьорість поєднується з теплом. Обираємо якісні зерна, дбаємо про етику поставок і готуємо з увагою до деталей.</p>
-        <ul class="list">
-          <li>Адреса: м. Київ, вул. Хрещатик, 25</li>
-          <li>Графік: Пн–Нд, 8:00–21:00</li>
-          <li>Телефон: <a href="tel:+380931234567">+38 (093) 123-45-67</a></li>
-        </ul>
+    <section id="reviews" class="section reviews">
+      <div class="container">
+        <h2 class="section-title">Відгуки</h2>
+        <div class="reviews-track" data-autoplay="true">
+          <figure class="review"><blockquote>«Найсмачніша кава у центрі!»</blockquote><figcaption>— Марія</figcaption></figure>
+          <figure class="review"><blockquote>«Затишно і привітно!»</blockquote><figcaption>— Андрій</figcaption></figure>
+        </div>
       </div>
-      <div class="about-photo reveal" aria-hidden="true">
-        <img src="https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=900&q=70&auto=format&fit=crop"
-             alt="Бариста готує каву" width="900" height="600" loading="lazy">
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <!-- Контакти -->
-  <section id="contact" class="section" aria-labelledby="contactTitle">
-    <div class="container contact-grid">
-      <div class="reveal">
-        <h2 id="contactTitle">Контакти</h2>
-        <p class="muted">Залиште повідомлення — відповімо протягом дня.</p>
-
-        <form id="contact-form" class="form" novalidate>
-          <label>
-            <span>Ваше ім’я</span>
-            <input type="text" name="name" required aria-required="true">
-          </label>
-          <label>
-            <span>Email</span>
-            <input type="email" name="email" required aria-required="true">
-          </label>
-          <label>
-            <span>Повідомлення</span>
-            <textarea name="message" rows="4" required aria-required="true"></textarea>
-          </label>
-          <button class="btn" type="submit">Надіслати</button>
-          <div id="form-message" class="form-message" aria-live="polite"></div>
+    <section id="contact" class="section contact">
+      <div class="container">
+        <h2 class="section-title">Контакти</h2>
+        <p>📍 Київ, вул. Хрещатик, 25<br>📞 +380 67 123 45 67<br>📧 info@brigantina.coffee</p>
+        <form class="contact-form">
+          <input type="text" placeholder="Ваше ім’я" required>
+          <input type="email" placeholder="Ваш Email" required>
+          <textarea placeholder="Ваше повідомлення" required></textarea>
+          <button type="submit">Надіслати</button>
         </form>
       </div>
+    </section>
+  </main>
 
-      <div class="map reveal" aria-hidden="true">
-        <iframe title="Карта: Київ, Хрещатик 25"
-                src="https://maps.google.com/maps?q=Kyiv%20Khreshchatyk%2025&t=&z=14&ie=UTF8&iwloc=&output=embed"
-                loading="lazy"></iframe>
-      </div>
-    </div>
-  </section>
+  <button id="toTop" class="to-top">▲</button>
 
-  <footer class="footer" role="contentinfo">
-    <div class="container footer-row">
-      <span>© <span id="year"></span> Дюск Бригантина, Київ</span>
-      <span class="author">Created by Chernyshev Roman</span>
-    </div>
+  <footer class="footer">
+    <p>© <span id="year"></span> Брігантина Кава · Створено Романом Чернишевим</p>
   </footer>
 
-  <script src="script.js"></script>
+  <script src="script.js" defer></script>
 </body>
 </html>
