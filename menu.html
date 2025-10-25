@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Меню — Coffee Time</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="brand-badge" aria-hidden="true">☕</div>
+      <a href="index.html" aria-label="На головну">Coffee Time</a>
+    </div>
+    <nav aria-label="Навігація">
+      <button class="burger" aria-expanded="false" aria-controls="menu">☰</button>
+      <ul id="menu">
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="barista.html">Наш бариста</a></li>
+        <li><a href="menu.html">Меню</a></li>
+        <li><a href="gallery.html">Галерея</a></li>
+        <li><a href="contact.html">Контакти</a></li>
+      </ul>
+    </nav>
+    <a class="cta" href="contact.html">Бронювати</a>
+  </div>
+</header>
+
+  <section class="container">
+    <h2 class="section-title">Меню напоїв</h2>
+    <p class="muted">Молоко: звичайне / безлактозне / мигдальне (+10₴).</p>
+    <div class="grid menu-grid">
+      <article class="card">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1518057111178-44a106bad636?q=80&w=1200&auto=format&fit=crop" alt="Еспресо"><span class="price">45₴</span></div>
+        <div class="card-body"><h3>Еспресо</h3><p class="muted">Щільне тіло, яскраві цитрусові нотки.</p></div>
+      </article>
+      <article class="card">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=1200&auto=format&fit=crop" alt="Капучино"><span class="price">75₴</span></div>
+        <div class="card-body"><h3>Капучино</h3><p class="muted">Баланс еспресо та молочної ніжності.</p></div>
+      </article>
+      <article class="card">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=1200&auto=format&fit=crop" alt="Фільтр"><span class="price">70₴</span></div>
+        <div class="card-body"><h3>Фільтр</h3><p class="muted">Чистий смак і аромат зерна — пуровер.</p></div>
+      </article>
+      <article class="card">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1523986371872-9d3ba2e2f642?q=80&w=1200&auto=format&fit=crop" alt="Флет-вайт"><span class="price">85₴</span></div>
+        <div class="card-body"><h3>Флет-вайт</h3><p class="muted">Подвійний еспресо з оксамитовим молоком.</p></div>
+      </article>
+      <article class="card">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1432107294469-414527cb5c65?q=80&w=1200&auto=format&fit=crop" alt="Матча-лате"><span class="price">95₴</span></div>
+        <div class="card-body"><h3>Матча-лате</h3><p class="muted">Преміум матча, збите молоко.</p></div>
+      </article>
+      <article class="card">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?q=80&w=1200&auto=format&fit=crop" alt="Какао"><span class="price">65₴</span></div>
+        <div class="card-body"><h3>Какао</h3><p class="muted">Ніжний напій для будь-якого віку.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <section class="container">
+    <h2 class="section-title">Десерти</h2>
+    <div class="grid menu-grid">
+      <article class="card">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1523986371872-9d3ba2e2f642?q=80&w=1200&auto=format&fit=crop" alt="Сирник"><span class="price">95₴</span></div>
+        <div class="card-body"><h3>Сирник</h3><p class="muted">Домашній, ванільний, з ягодами.</p></div>
+      </article>
+      <article class="card">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1536164261511-3a17e671d380?q=80&w=1200&auto=format&fit=crop" alt="Круасан"><span class="price">60₴</span></div>
+        <div class="card-body"><h3>Круасан</h3><p class="muted">Класичний / мигдальний / шоколадний.</p></div>
+      </article>
+      <article class="card">
+        <div class="thumb"><img src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop" alt="Торт дня"><span class="price">120₴</span></div>
+        <div class="card-body"><h3>Торт дня</h3><p class="muted">Запитайте бариста про сьогоднішню позицію.</p></div>
+      </article>
+    </div>
+  </section>
+
+  <footer>
+  <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+    <div>© <span class="year"></span> Coffee Time — Київ</div>
+    <div class="muted">Instagram · Facebook · TikTok</div>
+  </div>
+</footer>
+<script src="script.js"></script>
+
+</body>
+</html>
