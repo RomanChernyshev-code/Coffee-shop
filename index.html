@@ -4,414 +4,65 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>COFFEE — Київська кавʼярня</title>
-  <meta name="description" content="Затишна київська кавʼярня: авторська кава, десерти, сніданки. Онлайн-меню, бронювання, відгуки та карта." />
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
   <style>
-    :root{
-      --bg:#0f0f0f;          /* фоновий колір */
-      --panel:#161616;       /* панелі/картки */
-      --text:#e8e8e8;        /* основний текст */
-      --muted:#b9b9b9;       /* другорядний текст */
-      --brand:#c2793f;       /* акцент (латте) */
-      --brand-2:#9a5f2f;     /* тінь/hover */
-      --ok:#2ecc71;
-      --err:#ff6b6b;
-      --radius:18px;
-      --shadow:0 10px 25px rgba(0,0,0,.35);
-      --maxw:1100px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{
-      margin:0; background:radial-gradient(1000px 600px at 80% -10%, rgba(194,121,63,.15), transparent), var(--bg);
-      color:var(--text); font-family:Inter, system-ui, -apple-system, Segoe UI, Roboto, "Helvetica Neue", Arial, "Noto Sans", "Apple Color Emoji", "Segoe UI Emoji";
-      line-height:1.6;
-    }
-    a{color:inherit; text-decoration:none}
-    img{max-width:100%; height:auto; display:block}
-    .container{width:100%; max-width:var(--maxw); margin:0 auto; padding:0 16px}
-
-    /* ====== Header ====== */
-    header{
-      position:sticky; top:0; z-index:50; backdrop-filter:saturate(1.2) blur(10px);
-      background:rgba(15,15,15,.72); border-bottom:1px solid rgba(255,255,255,.06);
-    }
-    .nav{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:12px 0}
-    .logo{display:flex; align-items:center; gap:10px; font-weight:700}
-    .logo-badge{width:36px; height:36px; border-radius:12px; background:linear-gradient(135deg, var(--brand), var(--brand-2)); display:grid; place-items:center; box-shadow:var(--shadow)}
-    .logo-badge span{font-family:"Playfair Display", serif; font-weight:700; font-size:18px}
-    nav ul{display:flex; list-style:none; gap:18px; margin:0; padding:0}
-    nav a{padding:8px 12px; border-radius:10px; transition:.2s ease; color:var(--muted)}
-    nav a:hover{background:rgba(255,255,255,.06); color:var(--text)}
-    .cta{
-      padding:10px 16px; border-radius:12px; background:linear-gradient(135deg, var(--brand), var(--brand-2));
-      color:#fff; font-weight:700; border:none; cursor:pointer; box-shadow:var(--shadow); transition:transform .15s ease;
-    }
-    .cta:active{transform:translateY(1px)}
-    .burger{display:none; background:none; border:none; padding:8px; color:var(--text); font-size:22px}
-
-    /* ====== Hero ====== */
-    .hero{padding:64px 0 36px}
-    .hero-grid{display:grid; grid-template-columns:1.1fr .9fr; gap:26px; align-items:center}
-    .kicker{letter-spacing:.12em; text-transform:uppercase; color:var(--brand); font-weight:700; font-size:.85rem}
-    h1{font-family:"Playfair Display", serif; font-weight:700; line-height:1.1; margin:10px 0 16px; font-size:clamp(32px, 5vw, 56px)}
-    .lead{color:var(--muted); font-size:clamp(16px, 2.2vw, 18px)}
-    .hero-cta{display:flex; gap:12px; margin-top:18px; flex-wrap:wrap}
-    .ghost{padding:10px 16px; border-radius:12px; background:transparent; border:1px solid rgba(255,255,255,.15); color:var(--text)}
-    .hero-card{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow)}
-    .hero-card img{width:100%; aspect-ratio:4/3; object-fit:cover; filter:contrast(1.02) saturate(1.05)}
-    .hero-card .cap{display:flex; align-items:center; justify-content:space-between; padding:12px 14px; color:var(--muted)}
-
-    /* ====== Sections ====== */
-    section{padding:52px 0}
-    .section-title{font-family:"Playfair Display", serif; font-size:clamp(24px, 3.5vw, 36px); margin:0 0 18px}
-    .muted{color:var(--muted)}
-
-    /* Menu grid */
-    .grid{display:grid; gap:16px}
-    .menu-grid{grid-template-columns:repeat(3, 1fr)}
-    .card{background:var(--panel); border:1px solid rgba(255,255,255,.06); border-radius:var(--radius); overflow:hidden; box-shadow:var(--shadow); display:flex; flex-direction:column}
-    .thumb{position:relative}
-    .thumb img{width:100%; aspect-ratio:4/3; object-fit:cover}
-    .price{position:absolute; right:10px; top:10px; background:rgba(0,0,0,.6); border:1px solid rgba(255,255,255,.1); padding:6px 10px; border-radius:999px; font-weight:700}
-    .card-body{padding:14px}
-    .card h3{margin:0 0 6px; font-size:18px}
-    .tag{display:inline-block; margin-top:8px; font-size:12px; color:var(--brand); border:1px solid rgba(194,121,63,.4); padding:2px 8px; border-radius:999px}
-
-    /* About */
-    .about{display:grid; grid-template-columns:1.1fr .9fr; gap:20px; align-items:center}
-    .about p{margin:0 0 10px}
-    .bullets{display:grid; grid-template-columns:repeat(2,1fr); gap:10px}
-    .bullet{background:linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02)); border:1px solid rgba(255,255,255,.08); border-radius:14px; padding:10px}
-
-    /* Reviews */
-    .reviews{grid-template-columns:repeat(3,1fr)}
-    .review{gap:10px}
-    .stars{color:#ffd166}
-
-    /* Gallery */
-    .gallery{grid-template-columns:repeat(4,1fr)}
-    .gallery img{border-radius:12px; aspect-ratio:1/1; object-fit:cover}
-
-    /* Contact */
-    form{display:grid; gap:10px}
-    input, textarea{background:#0e0e0e; border:1px solid rgba(255,255,255,.12); border-radius:12px; padding:12px; color:var(--text); font:inherit}
-    input:focus, textarea:focus{outline:2px solid var(--brand); border-color:transparent}
-    .row{display:grid; grid-template-columns:1fr 1fr; gap:10px}
-    .status{margin-top:6px; font-size:.95rem}
-
-    /* Footer */
-    footer{padding:28px 0 40px; color:var(--muted); border-top:1px solid rgba(255,255,255,.06)}
-
-    /* Responsive */
-    @media (max-width:1000px){
-      .hero-grid, .about{grid-template-columns:1fr}
-    }
-    @media (max-width:860px){
-      .menu-grid{grid-template-columns:repeat(2, 1fr)}
-      .gallery{grid-template-columns:repeat(3,1fr)}
-      .reviews{grid-template-columns:repeat(2,1fr)}
-    }
-    @media (max-width:600px){
-      .burger{display:block}
-      nav ul{position:absolute; left:0; right:0; top:62px; background:rgba(15,15,15,.98); border-bottom:1px solid rgba(255,255,255,.06); display:none; flex-direction:column; gap:0}
-      nav ul.open{display:flex}
-      nav a{padding:14px 16px}
-      .menu-grid{grid-template-columns:1fr}
-      .gallery{grid-template-columns:repeat(2,1fr)}
-      .reviews{grid-template-columns:1fr}
-      .row{grid-template-columns:1fr}
-    }
-
-    /* Motion preferences */
-    @media (prefers-reduced-motion: no-preference){
-      .reveal{opacity:0; transform:translateY(14px); transition:all .5s ease}
-      .reveal.visible{opacity:1; transform:none}
-      .cta, .ghost, .card, .bullet{transition:transform .2s ease, box-shadow .2s ease}
-      .card:hover{transform:translateY(-2px)}
-      .cta:hover{box-shadow:0 14px 30px rgba(194,121,63,.35)}
-    }
+    body{margin:0;font-family:Inter, sans-serif;background:#0f0f0f;color:#e8e8e8;line-height:1.6}
+    .container{max-width:800px;margin:auto;padding:20px}
+    h2{font-family:'Playfair Display',serif;font-size:2rem;margin-bottom:1rem}
+    input,textarea{width:100%;padding:10px;margin-top:6px;margin-bottom:10px;border-radius:8px;border:1px solid #333;background:#1b1b1b;color:#fff;font-family:inherit}
+    button{background:linear-gradient(135deg,#c2793f,#9a5f2f);border:none;color:#fff;padding:12px 20px;font-weight:700;border-radius:10px;cursor:pointer;transition:.3s all}
+    button:hover{filter:brightness(1.1)}
+    #status{margin-top:10px;opacity:0;transition:opacity .4s ease}
   </style>
 </head>
 <body>
-  <!-- ===== HEADER ===== -->
-  <header>
-    <div class="container nav">
-      <div class="logo">
-        <div class="logo-badge" aria-hidden="true"><span>☕</span></div>
-        <a href="#home" aria-label="На головну"><span>COFFEE</span></a>
-      </div>
-      <nav aria-label="Основна навігація">
-        <button class="burger" aria-expanded="false" aria-controls="menu">☰</button>
-        <ul id="menu">
-          <li><a href="#menu-sec">Меню</a></li>
-          <li><a href="#about">Про нас</a></li>
-          <li><a href="#gallery">Галерея</a></li>
-          <li><a href="#reviews">Відгуки</a></li>
-          <li><a href="#contact">Контакти</a></li>
-        </ul>
-      </nav>
-      <a class="cta" href="#contact">Забронювати</a>
-    </div>
-  </header>
-
-  <!-- ===== HERO ===== -->
-  <main id="home" class="hero container">
-    <div class="hero-grid">
-      <div>
-        <div class="kicker">Київ · Лукʼянівка</div>
-        <h1>Тепло в кожній чашці</h1>
-        <p class="lead">Авторська кава, свіжі десерти й сніданки цілий день. Забігайте на капучино або залишайтесь довше — в нас затишно, є Wi‑Fi та розетки біля столиків.</p>
-        <div class="hero-cta">
-          <a class="cta" href="#menu-sec">Дивитись меню</a>
-          <a class="ghost" href="#contact">Як нас знайти</a>
-        </div>
-      </div>
-      <div class="hero-card reveal">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1600&auto=format&fit=crop" alt="Капучино на деревʼяному столику" width="1600" height="1200" />
-        <div class="cap"><span class="muted">Зерно: Colombia, Ethiopia</span><span>Обсмажка: medium</span></div>
-      </div>
-    </div>
-  </main>
-
-  <!-- ===== MENU ===== -->
-  <section id="menu-sec">
-    <div class="container">
-      <h2 class="section-title">Меню</h2>
-      <p class="muted">Ціни вказані у гривнях. Молоко: звичайне / безлактозне / мигдальне (+10₴).</p>
-      <div class="grid menu-grid">
-        <!-- Напої -->
-        <article class="card reveal">
-          <div class="thumb">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1518057111178-44a106bad636?q=80&w=1200&auto=format&fit=crop" alt="Еспресо" width="1200" height="900" />
-            <span class="price">45₴</span>
-          </div>
-          <div class="card-body">
-            <h3>Еспресо</h3>
-            <p class="muted">Подвійний помел, щільне тіло, яскраві нотки цитрусу.</p>
-            <span class="tag">Міцний</span>
-          </div>
-        </article>
-        <article class="card reveal">
-          <div class="thumb">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=1200&auto=format&fit=crop" alt="Капучино" width="1200" height="900" />
-            <span class="price">75₴</span>
-          </div>
-          <div class="card-body">
-            <h3>Капучино</h3>
-            <p class="muted">Баланс еспресо та молочної ніжності. Лате-арт за замовчуванням :)</p>
-            <span class="tag">Популярне</span>
-          </div>
-        </article>
-        <article class="card reveal">
-          <div class="thumb">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1511920170033-f8396924c348?q=80&w=1200&auto=format&fit=crop" alt="Фільтр кава" width="1200" height="900" />
-            <span class="price">70₴</span>
-          </div>
-          <div class="card-body">
-            <h3>Фільтр</h3>
-            <p class="muted">Чистий смак і аромат зерна, готуємо свіжий пуровер.</p>
-            <span class="tag">Спешіалті</span>
-          </div>
-        </article>
-        <!-- Їжа -->
-        <article class="card reveal">
-          <div class="thumb">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1523986371872-9d3ba2e2f642?q=80&w=1200&auto=format&fit=crop" alt="Сирник" width="1200" height="900" />
-            <span class="price">95₴</span>
-          </div>
-          <div class="card-body">
-            <h3>Сирник</h3>
-            <p class="muted">Домашній, ванільний, подаємо з ягодами.</p>
-            <span class="tag">Без глютену</span>
-          </div>
-        </article>
-        <article class="card reveal">
-          <div class="thumb">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1536164261511-3a17e671d380?q=80&w=1200&auto=format&fit=crop" alt="Круасан" width="1200" height="900" />
-            <span class="price">60₴</span>
-          </div>
-          <div class="card-body">
-            <h3>Круасан</h3>
-            <p class="muted">Класичний або з мигдалем / шоколадом.</p>
-            <span class="tag">Випічка</span>
-          </div>
-        </article>
-        <article class="card reveal">
-          <div class="thumb">
-            <img loading="lazy" src="https://images.unsplash.com/photo-1544025162-d76694265947?q=80&w=1200&auto=format&fit=crop" alt="Тост з лососем" width="1200" height="900" />
-            <span class="price">135₴</span>
-          </div>
-          <div class="card-body">
-            <h3>Тост з лососем</h3>
-            <p class="muted">Пшеничний хліб, крем-сир, огірок, рукола.</p>
-            <span class="tag">Сніданок</span>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== ABOUT ===== -->
-  <section id="about">
-    <div class="container about">
-      <div>
-        <h2 class="section-title">Про кавʼярню</h2>
-        <p class="muted">Ми обсмажуємо зерно малими партіями та готуємо напої на машині La Marzocco. Вибираємо молоко локальних виробників, безлактозні та рослинні опції завжди в наявності.</p>
-        <div class="bullets">
-          <div class="bullet">Wi‑Fi 300 Мбіт/с і розетки біля кожного столу</div>
-          <div class="bullet">Мобільні оплаті: Apple Pay, Google Pay</div>
-          <div class="bullet">Десерти щодня власного виробництва</div>
-          <div class="bullet">Знижка 10% з власною чашкою</div>
-        </div>
-      </div>
-      <div class="hero-card reveal">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1485808191679-5f86510681a2?q=80&w=1600&auto=format&fit=crop" alt="Інтерʼєр кавʼярні" width="1600" height="1200" />
-        <div class="cap"><span class="muted">В серці Києва</span><span>Щодня 08:00—21:00</span></div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== GALLERY ===== -->
-  <section id="gallery">
-    <div class="container">
-      <h2 class="section-title">Галерея</h2>
-      <div class="grid gallery">
-        <img loading="lazy" src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?q=80&w=800&auto=format&fit=crop" alt="Лате" width="800" height="800" class="reveal"/>
-        <img loading="lazy" src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?q=80&w=800&auto=format&fit=crop" alt="Бариста" width="800" height="800" class="reveal"/>
-        <img loading="lazy" src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=800&auto=format&fit=crop" alt="Десерт" width="800" height="800" class="reveal"/>
-        <img loading="lazy" src="https://images.unsplash.com/photo-1519337265831-281ec6cc8514?q=80&w=800&auto=format&fit=crop" alt="Зерно" width="800" height="800" class="reveal"/>
-        <img loading="lazy" src="https://images.unsplash.com/photo-1522992319-0365e5f11656?q=80&w=800&auto=format&fit=crop" alt="Пуровер" width="800" height="800" class="reveal"/>
-        <img loading="lazy" src="https://images.unsplash.com/photo-1529070538774-1843cb3265df?q=80&w=800&auto=format&fit=crop" alt="Тости" width="800" height="800" class="reveal"/>
-        <img loading="lazy" src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=800&auto=format&fit=crop" alt="Капучино крупним планом" width="800" height="800" class="reveal"/>
-        <img loading="lazy" src="https://images.unsplash.com/photo-1517705008128-361805f42e86?q=80&w=800&auto=format&fit=crop" alt="Кавомашина" width="800" height="800" class="reveal"/>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== REVIEWS ===== -->
-  <section id="reviews">
-    <div class="container">
-      <h2 class="section-title">Відгуки гостей</h2>
-      <div class="grid reviews">
-        <article class="card review reveal">
-          <div class="card-body">
-            <div class="stars" aria-label="5 зірок">★★★★★</div>
-            «Найсмачніший фільтр у районі, затишний інтерʼєр. Повернусь!» — <span class="muted">Марина</span>
-          </div>
-        </article>
-        <article class="card review reveal">
-          <div class="card-body">
-            <div class="stars" aria-label="5 зірок">★★★★★</div>
-            «Круасани свіжі, кава на відмінно. Добра музика й немає натовпу.» — <span class="muted">Олег</span>
-          </div>
-        </article>
-        <article class="card review reveal">
-          <div class="card-body">
-            <div class="stars" aria-label="4 зірки">★★★★☆</div>
-            «Класне місце попрацювати: швидкий Wi‑Fi та ввічливі баристи.» — <span class="muted">Ірина</span>
-          </div>
-        </article>
-      </div>
-    </div>
-  </section>
-
-  <!-- ===== CONTACT ===== -->
   <section id="contact">
     <div class="container">
-      <h2 class="section-title">Контакти та бронювання</h2>
-      <div class="grid" style="grid-template-columns:1.1fr .9fr; gap:16px">
-        <div>
-          <p class="muted">Київ, вул. Олеся Гончара, 50 (Лукʼянівка)<br>Пн—Нд: 08:00—21:00</p>
-          <p><a href="tel:+380630000000">+380 (63) 000‑00‑00</a> · <a href="mailto:hello@coffee.kyiv.ua">hello@coffee.kyiv.ua</a></p>
+      <h2>Контакти та бронювання</h2>
+      <p>Київ, вул. Олеся Гончара, 50 (Лукʼянівка)<br>Пн—Нд: 08:00—21:00</p>
+      <p><a href="tel:+380630000000" style="color:#c2793f">+380 (63) 000-00-00</a> · <a href="mailto:hello@coffee.kyiv.ua" style="color:#c2793f">hello@coffee.kyiv.ua</a></p>
 
-          <form id="book">
-            <div class="row">
-              <label>
-                <span class="muted">Імʼя</span>
-                <input name="name" required placeholder="Ваше імʼя" autocomplete="name" />
-              </label>
-              <label>
-                <span class="muted">Телефон</span>
-                <input name="phone" required placeholder="+380…" autocomplete="tel" />
-              </label>
-            </div>
-            <div class="row">
-              <label>
-                <span class="muted">Дата</span>
-                <input type="date" name="date" required />
-              </label>
-              <label>
-                <span class="muted">Час</span>
-                <input type="time" name="time" required />
-              </label>
-            </div>
-            <label>
-              <span class="muted">Коментар</span>
-              <textarea name="msg" rows="3" placeholder="Кількість гостей, побажання…"></textarea>
-            </label>
-            <button class="cta" type="submit">Забронювати столик</button>
-            <div class="status" id="status" role="status" aria-live="polite"></div>
-          </form>
-        </div>
-        <div class="hero-card reveal" style="height:100%">
-          <iframe title="Карта Києва" loading="lazy" width="100%" height="100%" style="min-height:360px; border:0" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
-            src="https://www.google.com/maps?q=50.4510,30.5081&hl=uk&z=14&output=embed"></iframe>
-          <div class="cap"><span class="muted">Ми поруч із метро</span><span>Лукʼянівська / Університет</span></div>
-        </div>
-      </div>
+      <form id="book" action="https://formspree.io/f/mzzpykjp" method="POST">
+        <label>Імʼя<input type="text" name="name" required placeholder="Ваше імʼя"></label>
+        <label>Телефон<input type="tel" name="phone" required placeholder="+380..."></label>
+        <label>Дата<input type="date" id="date" name="date" required></label>
+        <label>Час<input type="time" name="time" required></label>
+        <label>Коментар<textarea name="msg" rows="3" placeholder="Кількість гостей, побажання..."></textarea></label>
+        <input type="hidden" name="_replyto" value="st9838892@stud.duikt.edu.ua">
+        <button type="submit">Забронювати столик</button>
+        <div id="status"></div>
+      </form>
     </div>
   </section>
-
-  <footer>
-    <div class="container" style="display:flex; justify-content:space-between; align-items:center; gap:12px; flex-wrap:wrap">
-      <div>© <span id="year"></span> COFFEE — Київ</div>
-      <div class="muted">Instagram · Facebook · TikTok</div>
-    </div>
-  </footer>
-
   <script>
-    // Бургер-меню
-    const burger = document.querySelector('.burger');
-    const list = document.querySelector('#menu');
-    burger?.addEventListener('click', ()=>{
-      const open = list.classList.toggle('open');
-      burger.setAttribute('aria-expanded', String(open));
-    });
+    // автозаповнення дати сьогодні
+    const dateInput=document.getElementById('date');
+    const today=new Date().toISOString().split('T')[0];
+    if(dateInput) dateInput.value=today;
 
-    // Плавне підсвічування елементів при прокрутці
-    const io = ('IntersectionObserver' in window) ? new IntersectionObserver((entries)=>{
-      entries.forEach(e=>{ if(e.isIntersecting) e.target.classList.add('visible'); });
-    }, {threshold:.12}) : null;
-    document.querySelectorAll('.reveal').forEach(el=> io?.observe(el));
+    const form=document.getElementById('book');
+    const status=document.getElementById('status');
 
-    // Рік у футері
-    document.getElementById('year').textContent = new Date().getFullYear();
-
-    // Форма бронювання (демо, без бекенду)
-    const form = document.getElementById('book');
-    const status = document.getElementById('status');
-    form?.addEventListener('submit', (e)=>{
+    form.addEventListener('submit',async(e)=>{
       e.preventDefault();
-      const data = Object.fromEntries(new FormData(form).entries());
-      // Мінімальна валідація
-      if(!data.name || !data.phone || !data.date || !data.time){
-        status.textContent = 'Заповніть усі поля.';
-        status.style.color = getComputedStyle(document.documentElement).getPropertyValue('--err');
-        return;
+      const data=new FormData(form);
+      try{
+        const res=await fetch(form.action,{method:'POST',body:data,headers:{Accept:'application/json'}});
+        if(res.ok){
+          status.textContent='✅ Дякуємо! Бронювання відправлено.';
+          status.style.color='#2ecc71';
+          form.reset();
+        }else{
+          status.textContent='⚠️ Помилка при відправці. Спробуйте ще раз.';
+          status.style.color='#ff6b6b';
+        }
+      }catch(err){
+        status.textContent='⚠️ Проблема з мережею. Спробуйте пізніше.';
+        status.style.color='#ff6b6b';
       }
-      status.textContent = 'Дякуємо! Ми зателефонуємо для підтвердження.';
-      status.style.color = getComputedStyle(document.documentElement).getPropertyValue('--ok');
-      form.reset();
+      status.style.opacity=1;
+      setTimeout(()=>status.style.opacity=0,4000);
     });
-
-    // Закриття мобільного меню після кліку по пункту
-    document.querySelectorAll('#menu a').forEach(a=>a.addEventListener('click', ()=>{
-      list.classList.remove('open');
-      burger.setAttribute('aria-expanded','false');
-    }));
   </script>
 </body>
 </html>
