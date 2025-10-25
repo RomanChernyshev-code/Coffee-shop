@@ -3,128 +3,74 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>COFFEE — Київська кавʼярня</title>
-  <meta name="description" content="Затишна київська кавʼярня: авторська кава, десерти, сніданки. Онлайн-меню, бронювання, відгуки та карта." />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
-  <style>
-    :root{
-      --bg:#0f0f0f;--panel:#161616;--text:#e8e8e8;--muted:#b9b9b9;--brand:#c2793f;--brand-2:#9a5f2f;--ok:#2ecc71;--err:#ff6b6b;--radius:18px;--shadow:0 10px 25px rgba(0,0,0,.35);--maxw:1100px;
-    }
-    *{box-sizing:border-box}
-    html{scroll-behavior:smooth}
-    body{margin:0;background:var(--bg);color:var(--text);font-family:Inter, sans-serif;line-height:1.6;}
-    a{color:inherit;text-decoration:none}
-    img{max-width:100%;height:auto;display:block}
-    .container{max-width:var(--maxw);margin:auto;padding:0 16px}
-
-    header{position:sticky;top:0;z-index:10;background:rgba(15,15,15,.85);backdrop-filter:blur(8px);border-bottom:1px solid rgba(255,255,255,.05)}
-    .nav{display:flex;justify-content:space-between;align-items:center;padding:12px 0}
-    nav ul{display:flex;list-style:none;gap:18px;margin:0;padding:0}
-    nav a{color:var(--muted);padding:8px 12px;border-radius:10px}
-    nav a:hover{color:var(--text);background:rgba(255,255,255,.08)}
-    .cta{background:linear-gradient(135deg,var(--brand),var(--brand-2));color:#fff;padding:10px 16px;border:none;border-radius:10px;cursor:pointer;box-shadow:var(--shadow);transition:.3s}
-    .cta:hover{transform:translateY(-1px)}
-
-    section{padding:60px 0}
-    h1,h2{font-family:'Playfair Display',serif}
-
-    .hero{display:grid;grid-template-columns:1.1fr .9fr;align-items:center;gap:24px;padding-top:70px}
-    .lead{color:var(--muted)}
-
-    .menu-grid,.gallery,.reviews{display:grid;gap:16px}
-    .menu-grid{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
-    .card{background:var(--panel);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow)}
-    .card-body{padding:16px}
-    .price{position:absolute;right:10px;top:10px;background:rgba(0,0,0,.6);padding:4px 10px;border-radius:999px}
-
-    form{display:grid;gap:10px}
-    input,textarea{background:#0e0e0e;border:1px solid rgba(255,255,255,.12);border-radius:12px;padding:12px;color:var(--text)}
-    input:focus,textarea:focus{outline:2px solid var(--brand)}
-    .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
-    .status{margin-top:8px;font-size:.95rem}
-
-    #toast{position:fixed;top:20px;left:50%;transform:translateX(-50%);background:var(--ok);color:#fff;padding:12px 22px;border-radius:10px;box-shadow:0 8px 20px rgba(0,0,0,.3);opacity:0;pointer-events:none;transition:opacity .5s,transform .5s ease;z-index:999}
-    #toast.show{opacity:1;transform:translate(-50%,0)}
-
-    footer{padding:30px 0;border-top:1px solid rgba(255,255,255,.06);color:var(--muted);text-align:center}
-  </style>
+  <title>Coffee Time — київська кавʼярня</title>
+  <meta name="description" content="Coffee Time — тепла й затишна кавʼярня в Києві. Авторська кава, десерти та сніданки. Меню онлайн і бронювання столиків." />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css" />
 </head>
 <body>
-<header>
+  <header>
   <div class="container nav">
-    <div class="logo"><strong>COFFEE</strong></div>
-    <nav>
-      <ul>
-        <li><a href="#menu">Меню</a></li>
-        <li><a href="#about">Про нас</a></li>
-        <li><a href="#gallery">Галерея</a></li>
-        <li><a href="#contact">Контакти</a></li>
+    <div class="brand">
+      <div class="brand-badge" aria-hidden="true">☕</div>
+      <a href="index.html" aria-label="На головну">Coffee Time</a>
+    </div>
+    <nav aria-label="Навігація">
+      <button class="burger" aria-expanded="false" aria-controls="menu">☰</button>
+      <ul id="menu">
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="barista.html">Наш бариста</a></li>
+        <li><a href="menu.html">Меню</a></li>
+        <li><a href="gallery.html">Галерея</a></li>
+        <li><a href="contact.html">Контакти</a></li>
       </ul>
     </nav>
-    <button class="cta" onclick="document.querySelector('#contact').scrollIntoView({behavior:'smooth'})">Бронювати</button>
+    <a class="cta" href="contact.html">Бронювати</a>
   </div>
 </header>
 
-<main class="container hero">
-  <div>
-    <h1>Тепло в кожній чашці</h1>
-    <p class="lead">Авторська кава, десерти, Wi‑Fi та атмосфера затишку. Київ, вул. Олеся Гончара, 50.</p>
-    <button class="cta" onclick="document.querySelector('#menu').scrollIntoView({behavior:'smooth'})">Дивитись меню</button>
-  </div>
-  <img src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1600&auto=format&fit=crop" alt="Капучино"/>
-</main>
-
-<section id="menu" class="container">
-  <h2>Меню</h2>
-  <div class="menu-grid">
-    <article class="card"><div style="position:relative"><img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=1200&auto=format&fit=crop" alt="Еспресо"><span class="price">45₴</span></div><div class="card-body"><h3>Еспресо</h3><p>Насичений смак, подвійний помел.</p></div></article>
-    <article class="card"><div style="position:relative"><img src="https://images.unsplash.com/photo-1498804103079-a6351b050096?q=80&w=1200&auto=format&fit=crop" alt="Капучино"><span class="price">75₴</span></div><div class="card-body"><h3>Капучино</h3><p>Баланс еспресо і молочної ніжності.</p></div></article>
-  </div>
-</section>
-
-<section id="about" class="container">
-  <h2>Про нас</h2>
-  <p>Ми обсмажуємо зерно малими партіями, готуємо напої на машині La Marzocco, пропонуємо десерти власного виробництва. Знижка 10% із власною чашкою!</p>
-</section>
-
-<section id="gallery" class="container">
-  <h2>Галерея</h2>
-  <div class="gallery" style="grid-template-columns:repeat(auto-fit,minmax(200px,1fr))">
-    <img src="https://images.unsplash.com/photo-1519337265831-281ec6cc8514?q=80&w=800&auto=format&fit=crop" alt="Інтерʼєр">
-    <img src="https://images.unsplash.com/photo-1470337458703-46ad1756a187?q=80&w=800&auto=format&fit=crop" alt="Кава">
-    <img src="https://images.unsplash.com/photo-1517705008128-361805f42e86?q=80&w=800&auto=format&fit=crop" alt="Бариста">
-  </div>
-</section>
-
-<section id="contact" class="container">
-  <h2>Контакти та бронювання</h2>
-  <p class="lead">Київ, вул. Олеся Гончара, 50 · Пн—Нд: 08:00—21:00</p>
-  <form id="book" action="https://formspree.io/f/mzzpykjp" method="POST">
-    <div class="row">
-      <label>Імʼя<input type="text" name="name" required placeholder="Ваше імʼя"></label>
-      <label>Телефон<input type="tel" name="phone" required placeholder="+380..."></label>
+  <main class="container hero">
+    <div class="hero-grid">
+      <div>
+        <div class="kicker">Київ · Лукʼянівка</div>
+        <h1>Тепло в кожній чашці</h1>
+        <p class="lead">Авторська кава, свіжі десерти й сніданки. Забігайте на капучино або залишайтесь довше — у нас затишно, є Wi-Fi та розетки біля столиків.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:14px">
+          <a class="cta" href="menu.html">Дивитись меню</a>
+          <a class="cta" style="background:linear-gradient(135deg,#2e7d32,#1b5e20)" href="contact.html">Забронювати</a>
+        </div>
+      </div>
+      <div class="card">
+        <div class="thumb">
+          <img loading="lazy" src="https://images.unsplash.com/photo-1504754524776-8f4f37790ca0?q=80&w=1600&auto=format&fit=crop" alt="Капучино на деревʼяному столику" />
+          <span class="price">Зерно: Colombia, Ethiopia</span>
+        </div>
+        <div class="card-body">
+          <strong>Обсмажка: medium</strong>
+          <p class="muted">Ми обсмажуємо зерно малими партіями для стабільного смаку.</p>
+        </div>
+      </div>
     </div>
-    <div class="row">
-      <label>Дата<input type="date" id="date" name="date" required></label>
-      <label>Час<input type="time" name="time" required></label>
+  </main>
+
+  <section class="container">
+    <h2 class="section-title">Чому нас обирають</h2>
+    <div class="grid" style="grid-template-columns:repeat(3,1fr)">
+      <div class="card"><div class="card-body"><h3>Спешіалті-зерно</h3><p class="muted">Відбірні сорти з прозорою історією походження.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Десерти щодня</h3><p class="muted">Випічка власного виробництва — від круасанів до сирників.</p></div></div>
+      <div class="card"><div class="card-body"><h3>Затишно працювати</h3><p class="muted">Швидкий Wi-Fi, розетки біля столиків, приємна музика.</p></div></div>
     </div>
-    <label>Коментар<textarea name="msg" rows="3" placeholder="Кількість гостей, побажання..."></textarea></label>
-    <input type="hidden" name="_replyto" value="st9838892@stud.duikt.edu.ua">
-    <button class="cta" type="submit">Забронювати столик</button>
-    <div class="status" id="status"></div>
-  </form>
-</section>
+  </section>
 
-<div id="toast"></div>
+  <footer>
+  <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+    <div>© <span class="year"></span> Coffee Time — Київ</div>
+    <div class="muted">Instagram · Facebook · TikTok</div>
+  </div>
+</footer>
+<script src="script.js"></script>
 
-<footer>© <span id="year"></span> COFFEE — Київ</footer>
-
-<script>
-  document.getElementById('year').textContent=new Date().getFullYear();
-  const dateInput=document.getElementById('date');const today=new Date().toISOString().split('T')[0];if(dateInput)dateInput.value=today;
-  const form=document.getElementById('book');const status=document.getElementById('status');const toast=document.getElementById('toast');
-  function showToast(msg,color){toast.textContent=msg;toast.style.background=color;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),4000)}
-  form.addEventListener('submit',async e=>{e.preventDefault();const data=new FormData(form);try{const res=await fetch(form.action,{method:'POST',body:data,headers:{Accept:'application/json'}});if(res.ok){status.textContent='✅ Дякуємо! Бронювання відправлено.';status.style.color='var(--ok)';form.reset();showToast('Бронювання відправлено!', 'var(--ok)')}else{status.textContent='⚠️ Помилка при відправці.';status.style.color='var(--err)';showToast('Помилка при відправці','var(--err)')}}catch(err){status.textContent='⚠️ Проблема з мережею.';status.style.color='var(--err)';showToast('Проблема з мережею','var(--err)')}status.style.opacity=1;setTimeout(()=>status.style.opacity=0,4000)});
-</script>
 </body>
 </html>
