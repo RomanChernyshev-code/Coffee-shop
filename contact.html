@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Контакти — Coffee Time</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="brand">
+      <div class="brand-badge" aria-hidden="true">☕</div>
+      <a href="index.html" aria-label="На головну">Coffee Time</a>
+    </div>
+    <nav aria-label="Навігація">
+      <button class="burger" aria-expanded="false" aria-controls="menu">☰</button>
+      <ul id="menu">
+        <li><a href="index.html">Головна</a></li>
+        <li><a href="barista.html">Наш бариста</a></li>
+        <li><a href="menu.html">Меню</a></li>
+        <li><a href="gallery.html">Галерея</a></li>
+        <li><a href="contact.html">Контакти</a></li>
+      </ul>
+    </nav>
+    <a class="cta" href="contact.html">Бронювати</a>
+  </div>
+</header>
+
+  <section class="container">
+    <h2 class="section-title">Контакти та бронювання</h2>
+    <p class="muted">Київ, вул. Олеся Гончара, 50 (Лукʼянівка) · Пн—Нд: 08:00—21:00</p>
+    <p><a href="tel:+380630000000">+380 (63) 000‑00‑00</a> · <a href="mailto:st9838892@stud.duikt.edu.ua">st9838892@stud.duikt.edu.ua</a></p>
+    <div class="grid" style="grid-template-columns:1.1fr .9fr">
+      <form id="book" action="https://formspree.io/f/mzzpykjp" method="POST">
+        <div class="row">
+          <label>Імʼя<input type="text" name="name" required placeholder="Ваше імʼя"></label>
+          <label>Телефон<input type="tel" name="phone" required placeholder="+380…"></label>
+        </div>
+        <div class="row">
+          <label>Дата<input type="date" id="date" name="date" required></label>
+          <label>Час<input type="time" name="time" required></label>
+        </div>
+        <label>Коментар<textarea name="msg" rows="3" placeholder="Кількість гостей, побажання…"></textarea></label>
+        <input type="hidden" name="_replyto" value="st9838892@stud.duikt.edu.ua">
+        <button class="cta" type="submit">Забронювати столик</button>
+        <div class="status" id="status" role="status" aria-live="polite"></div>
+      </form>
+      <div class="card">
+        <iframe title="Карта Києва" loading="lazy" width="100%" height="100%" style="min-height:360px;border:0" referrerpolicy="no-referrer-when-downgrade" allowfullscreen
+          src="https://www.google.com/maps?q=50.4510,30.5081&hl=uk&z=14&output=embed"></iframe>
+      </div>
+    </div>
+  </section>
+  <div id="toast"></div>
+
+<footer>
+  <div class="container" style="display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap">
+    <div>© <span class="year"></span> Coffee Time — Київ</div>
+    <div class="muted">Instagram · Facebook · TikTok</div>
+  </div>
+</footer>
+<script src="script.js"></script>
+
+</body>
+</html>

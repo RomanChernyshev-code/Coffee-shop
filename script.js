@@ -10,9 +10,7 @@ burger?.addEventListener('click', ()=>{
 const path = location.pathname.split('/').pop() || 'index.html';
 document.querySelectorAll('nav a').forEach(a=>{
   const href = a.getAttribute('href');
-  if (href && (href.endsWith ? href.endsWith(path) : href.slice(-path.length)===path)) {
-    a.classList.add('active');
-  }
+  if (href && href.endsWith ? href.endsWith(path) : href.slice(-path.length)===path) a.classList.add('active');
 });
 
 // Footer year
@@ -56,4 +54,3 @@ if(form){
     }
   });
 }
-
